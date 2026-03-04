@@ -273,18 +273,20 @@
         #ddt-tour details summary::marker { display: none; content: ''; }
 
         #ddt-tour details summary::before {
-            content: '\25B6';
+            content: '';
             position: absolute;
-            left: 14px;
+            left: 16px;
             top: 50%;
-            transform: translateY(-50%);
-            color: rgb(204, 108, 29);
-            font-size: 12px;
+            width: 8px;
+            height: 8px;
+            border-right: 2px solid rgb(204, 108, 29);
+            border-bottom: 2px solid rgb(204, 108, 29);
+            transform: translateY(-50%) rotate(-45deg);
             transition: transform 0.3s ease;
         }
 
         #ddt-tour details[open] summary::before {
-            transform: translateY(-50%) rotate(90deg);
+            transform: translateY(-65%) rotate(45deg);
         }
 
         #ddt-tour details summary b {
@@ -455,7 +457,7 @@
     <div id="ddt-itinerary" class="ddt-tab-content">
         <h2>Itinerary</h2>
 
-        <details>
+        <details open>
             <summary>
                 <b>Day 1: Galbraith Mountain</b>
             </summary>
