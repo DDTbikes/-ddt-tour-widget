@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bellingham Basecamp MTB Tour</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+        body { margin: 0; padding: 0; background: transparent; }
+
+        #ddt-tour * { box-sizing: border-box; }
+
+        #ddt-tour {
+            font-family: 'Lora', Georgia, serif;
+            max-width: 640px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+            overflow: hidden;
+            color: #2c2c2c;
+            line-height: 1.5;
+        }
+
+        /* Tab Bar */
+        #ddt-tour .ddt-tab-bar {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px 0;
+            background: #fafafa;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        #ddt-tour .ddt-tab-btn {
+            flex: 1;
+            padding: 10px 16px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: #888;
+            border-radius: 8px 8px 0 0;
+            transition: color 0.2s, background 0.2s;
+            text-align: center;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        #ddt-tour .ddt-tab-btn:hover {
+            color: rgb(204, 108, 29);
+            background: rgba(204, 108, 29, 0.05);
+        }
+
+        #ddt-tour .ddt-tab-btn.ddt-active {
+            color: rgb(204, 108, 29) !important;
+            background: #fff !important;
+            border: 1px solid #e8e8e8;
+            border-bottom: 2px solid #fff;
+            margin-bottom: -1px;
+            font-weight: 700;
+        }
+
+        /* Headings */
+        #ddt-tour h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: rgb(34, 100, 34);
+            margin: 0 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(34, 100, 34, 0.15);
+            line-height: 1.3;
+        }
+
+        #ddt-tour h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #444;
+            margin: 0 0 16px;
+            line-height: 1.3;
+        }
+
+        /* H2 Row with pills */
+        #ddt-tour .ddt-h2-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(34, 100, 34, 0.15);
+            gap: 12px;
+        }
+
+        #ddt-tour .ddt-h2-row h2 {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        #ddt-tour .ddt-h2-pills {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        #ddt-tour .ddt-h2-pill {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+
+        #ddt-tour .ddt-h2-pill.ddt-green {
+            background: rgb(34, 100, 34);
+            color: #fff;
+        }
+
+        #ddt-tour .ddt-h2-pill.ddt-muted {
+            background: rgba(34, 100, 34, 0.1);
+            color: rgb(34, 100, 34);
+        }
+
+        #ddt-tour .ddt-h2-pill i {
+            font-size: 11px;
+        }
+
+        /* Tab Content */
+        #ddt-tour .ddt-tab-content {
+            display: none;
+            padding: 28px;
+        }
+
+        #ddt-tour .ddt-tab-content.ddt-active {
+            display: block;
+        }
+
+        #ddt-tour .ddt-tab-content p {
+            line-height: 1.72;
+            margin-bottom: 14px;
+            font-size: 15.5px;
+        }
+
+        /* Info Blocks */
+        #ddt-tour .ddt-info-blocks {
+            display: flex;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        #ddt-tour .ddt-info-block {
+            flex: 1;
+            border-radius: 10px;
+            padding: 16px 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+
+        #ddt-tour .ddt-info-block-left {
+            background: rgb(34, 100, 34);
+            color: #fff;
+        }
+
+        #ddt-tour .ddt-info-block-right {
+            background: rgba(34, 100, 34, 0.12);
+            color: #2c2c2c;
+        }
+
+        #ddt-tour .ddt-ib-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        #ddt-tour .ddt-ib-row i {
+            width: 16px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        #ddt-tour .ddt-info-block-left .ddt-ib-row i {
+            color: rgba(255,255,255,0.7);
+        }
+
+        #ddt-tour .ddt-info-block-right .ddt-ib-row i {
+            color: rgb(34, 100, 34);
+        }
+
+        #ddt-tour .ddt-ib-row b {
+            font-weight: 600;
+        }
+
+        #ddt-tour .ddt-book-now-row {
+            text-align: right;
+            margin-top: -4px;
+            margin-bottom: 8px;
+        }
+
+        #ddt-tour .ddt-book-now-btn {
+            display: inline-block;
+            background: rgb(204, 108, 29);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 10px 24px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        #ddt-tour .ddt-book-now-btn:hover {
+            background: rgb(224, 128, 39);
+        }
+
+        /* Callout */
+        #ddt-tour .ddt-callout {
+            background: #f9f9f6;
+            border-left: 3px solid rgb(34, 100, 34);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+            color: #555;
+            margin: 16px 0;
+        }
+
+        #ddt-tour .ddt-callout b {
+            color: rgb(34, 100, 34);
+        }
+
+        /* Accordion */
+        #ddt-tour details {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 8px;
+        }
+
+        #ddt-tour details summary {
+            list-style: none;
+            position: relative;
+            padding: 14px 16px 14px 40px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        #ddt-tour details summary:hover {
+            background: rgba(204, 108, 29, 0.04);
+        }
+
+        #ddt-tour details summary::-webkit-details-marker { display: none; }
+        #ddt-tour details summary::marker { display: none; content: ''; }
+
+        #ddt-tour details summary::before {
+            content: '\25B6';
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgb(204, 108, 29);
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        #ddt-tour details[open] summary::before {
+            transform: translateY(-50%) rotate(90deg);
+        }
+
+        #ddt-tour details summary b {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        #ddt-tour .ddt-day-body {
+            padding: 0 16px 16px;
+        }
+
+        #ddt-tour .ddt-time-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgb(204, 108, 29);
+            margin: 18px 0 8px;
+            display: block;
+        }
+
+        #ddt-tour .ddt-stats-line {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+            background: #f8f8f8;
+            padding: 8px 14px;
+            border-radius: 6px;
+            margin-top: 12px;
+            display: inline-block;
+        }
+
+        /* Price Cards */
+        #ddt-tour .ddt-price-card {
+            border-left: 3px solid rgb(204, 108, 29);
+            background: #fafafa;
+            border-radius: 0 8px 8px 0;
+            padding: 16px 18px;
+            margin-bottom: 12px;
+        }
+
+        #ddt-tour .ddt-price-main {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        #ddt-tour .ddt-price-main i {
+            color: rgb(204, 108, 29);
+            width: 20px;
+        }
+
+        #ddt-tour .ddt-price-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgb(204, 108, 29);
+        }
+
+        #ddt-tour .ddt-price-sub {
+            font-size: 13.5px;
+            color: #888;
+            margin-top: 6px;
+            padding-left: 28px;
+        }
+
+        /* Date Pills */
+        #ddt-tour .ddt-date-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+
+        #ddt-tour .ddt-date-pill {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 24px;
+            background: rgba(34, 100, 34, 0.08);
+            color: rgb(34, 100, 34);
+            border: 1px solid rgba(34, 100, 34, 0.15);
+        }
+
+        /* Includes text */
+        #ddt-tour .ddt-includes-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin: 12px 0 4px;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            #ddt-tour .ddt-tab-content { padding-left: 36px; padding-right: 36px; }
+        }
+
+        @media (max-width: 600px) {
+            #ddt-tour .ddt-tab-btn { font-size: 11px; padding: 8px; }
+            #ddt-tour .ddt-tab-content { padding: 20px 14px; }
+            #ddt-tour .ddt-info-blocks { flex-direction: column; }
+            #ddt-tour .ddt-h2-row { flex-wrap: wrap; }
+            #ddt-tour .ddt-h2-pills { gap: 6px; }
+            #ddt-tour .ddt-h2-pill { font-size: 11px; padding: 4px 10px; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div id="ddt-tour">
+
+    <!-- Tabs -->
+    <div class="ddt-tab-bar">
+        <button data-tab="ddt-overview" class="ddt-tab-btn ddt-active">Overview</button>
+        <button data-tab="ddt-itinerary" class="ddt-tab-btn">Itinerary</button>
+        <button data-tab="ddt-price-dates" class="ddt-tab-btn">Price &amp; Dates</button>
+    </div>
+
+    <!-- Tab Content: Overview -->
+    <div id="ddt-overview" class="ddt-tab-content ddt-active">
+        <div class="ddt-h2-row">
+            <h2>Overview</h2>
+            <div class="ddt-h2-pills">
+                <span class="ddt-h2-pill ddt-green"><i class="fa-solid fa-tag"></i> $2,750</span>
+                <span class="ddt-h2-pill ddt-muted"><i class="fa-solid fa-location-dot"></i> Bellingham, WA</span>
+            </div>
+        </div>
+        <p>
+            Welcome to <b>Bellingham</b> — the mountain bike capital of the Pacific Northwest, and our backyard. With over 100 miles of singletrack woven through lush coastal forests, stunning bay views, and world-class trail networks, Bellingham is a rider's paradise for <b>all levels</b>.
+        </p>
+        <p>
+            This 3-day basecamp tour explores the best of what Bellingham has to offer. We'll ride the legendary trails of <b>Galbraith Mountain</b>, descend through old-growth forest at <b>Chuckanut/Larrabee</b>, and venture out to <b>Blanchard Mountain</b> for a backcountry experience — all while returning each evening to the comforts of a downtown hotel, craft breweries, and delicious local food.
+        </p>
+
+        <div class="ddt-info-blocks">
+            <div class="ddt-info-block ddt-info-block-left">
+                <div class="ddt-ib-row"><i class="fa-solid fa-clock"></i> <span><b>Duration:</b> 3 Days</span></div>
+                <div class="ddt-ib-row"><i class="fa-solid fa-gauge"></i> <span><b>Technical level:</b> All Levels</span></div>
+                <div class="ddt-ib-row"><i class="fa-solid fa-heart-pulse"></i> <span><b>Base fitness level:</b> 4 / 10</span></div>
+                <div class="ddt-ib-row"><i class="fa-solid fa-hotel"></i> <span><b>Tour Style:</b> Hotels</span></div>
+            </div>
+            <div class="ddt-info-block ddt-info-block-right">
+                <div class="ddt-ib-row"><i class="fa-solid fa-right-left"></i> <span><b>Start / End:</b> Bellingham, WA</span></div>
+                <div class="ddt-ib-row"><i class="fa-solid fa-sun"></i> <span><b>Season:</b> April – October</span></div>
+                <div class="ddt-ib-row"><i class="fa-solid fa-bicycle"></i> <span><b>Rental Bikes:</b> Salsa Blackthorn ($85/day)</span></div>
+                <div class="ddt-ib-row"><i class="fa-solid fa-mountain"></i> <span><b>Elevation Range:</b> sea level – 3000'</span></div>
+            </div>
+        </div>
+        <div class="ddt-book-now-row">
+            <a class="ddt-book-now-btn" href="#">Book Now</a>
+        </div>
+
+        <div class="ddt-callout">
+            <b>Advanced riders:</b> Shuttle days are available at Larrabee State Park or Darrington for those looking for bigger descents and more technical terrain.
+        </div>
+    </div>
+
+    <!-- Tab Content: Itinerary -->
+    <div id="ddt-itinerary" class="ddt-tab-content">
+        <h2>Itinerary</h2>
+
+        <details>
+            <summary>
+                <b>Day 1: Galbraith Mountain</b>
+            </summary>
+            <div class="ddt-day-body">
+                <span class="ddt-time-label">Morning</span>
+                <p>
+                    After a morning meet-and-greet at our downtown Bellingham hotel, we'll load up and head to the south side of <b>Galbraith Mountain</b> — 3,000 acres and 100+ miles of singletrack right in our backyard. We'll start with a warm-up climb through towering second-growth forest, getting our legs dialed and taking in views of Bellingham Bay peeking through the trees.
+                </p>
+                <p>
+                    The morning ride will be tailored to the group — beginners will enjoy smooth, flowy trails with gentle gradients, while more experienced riders can tackle optional features and technical sections. By mid-morning we'll have found our rhythm and earned a well-deserved trailside lunch.
+                </p>
+                <span class="ddt-time-label">Afternoon</span>
+                <p>
+                    Afternoon is where the magic really happens. We'll work our way up to some of Galbraith's signature descents — think luscious flow, perfect berms, and that meditative feeling of linking turn after turn through the forest. The trails here reward every level of rider, and by the time we roll back to the trailhead, the crew's spirits will be sky-high.
+                </p>
+                <p>
+                    We'll wrap up the day with a cold beverage at one of Bellingham's legendary breweries before settling in for dinner downtown.
+                </p>
+                <span class="ddt-stats-line">12–16 mi &nbsp;·&nbsp; ~2,000–2,500' elev.</span>
+            </div>
+        </details>
+
+        <details>
+            <summary>
+                <b>Day 2: Chuckanut &amp; Larrabee</b>
+            </summary>
+            <div class="ddt-day-body">
+                <span class="ddt-time-label">Morning</span>
+                <p>
+                    Day two takes us south along the iconic <b>Chuckanut Drive</b> to <b>Larrabee State Park</b> — Washington's very first state park, and home to some of our longest continual descents in the area. We'll climb through old-growth forest with postcard views of the San Juan Islands below.
+                </p>
+                <p>
+                    For the all-levels group, we'll ride a mix of scenic cross-country trails and mellow singletrack through towering cedars. <b>Advanced riders</b> have the option of a shuttle to the top for a ripping 1,600-foot descent on trails that blend flow and tech through ancient forest — a ride to remember.
+                </p>
+                <span class="ddt-time-label">Afternoon</span>
+                <p>
+                    After a picnic lunch with ocean views, we'll head to the <b>Chuckanut ridge trails</b> for an afternoon session. The network here offers a completely different feel from Galbraith — more rooted, more raw, and with a wild coastal forest atmosphere that's uniquely PNW.
+                </p>
+                <p>
+                    Back in town, we'll hit up a local favorite for dinner and share stories from the day's adventures. Undoubtedly tired and satisfied, we'll rest up for our final day.
+                </p>
+                <span class="ddt-stats-line">10–14 mi &nbsp;·&nbsp; ~1,500–2,200' elev.</span>
+            </div>
+        </details>
+
+        <details>
+            <summary>
+                <b>Day 3: Blanchard Mountain</b>
+            </summary>
+            <div class="ddt-day-body">
+                <p>
+                    Our final day features a backcountry adventure on <b>Blanchard Mountain</b>, a 4,500-acre state forest about 20 minutes south of town. This is where the wild side of Bellingham riding really shines. We'll climb through dense forest to reach ridgeline trails with sweeping views of Samish Bay and the San Juans.
+                </p>
+                <p>
+                    The descent rewards the climb — flowing singletrack through mossy forests, with options ranging from smooth intermediate lines to more technical terrain for those who want it. This is the kind of riding where you forget about everything else and just find the flow state.
+                </p>
+                <p>
+                    <b>Advanced riders:</b> For those with energy to spare, we offer an optional shuttle day at <b>Darrington</b> — a rugged backcountry experience with big mountain descents and remote alpine terrain.
+                </p>
+                <p>
+                    We'll finish the tour with a celebratory lunch back in Bellingham, basking in some post-ride glow before saying our goodbyes. Three days, countless trails, and memories for a lifetime in beautiful Bellingham, Washington!
+                </p>
+                <span class="ddt-stats-line">10–15 mi &nbsp;·&nbsp; ~1,800–2,500' elev.</span>
+            </div>
+        </details>
+    </div>
+
+    <!-- Tab Content: Price & Dates -->
+    <div id="ddt-price-dates" class="ddt-tab-content">
+        <h2>Price &amp; Dates</h2>
+
+        <h3>Pricing</h3>
+
+        <div class="ddt-price-card">
+            <div class="ddt-price-main"><i class="fa-solid fa-hotel"></i>&nbsp;&nbsp;Hotel Tour: <span class="ddt-price-tag">$2,750/person</span></div>
+            <div class="ddt-price-sub">Single occupancy room: +$450</div>
+        </div>
+
+        <div class="ddt-price-card">
+            <div class="ddt-price-main"><i class="fa-solid fa-bicycle"></i>&nbsp;&nbsp;Rental Bike: $85/day</div>
+            <div class="ddt-price-sub">Deposit to book: $500</div>
+        </div>
+
+        <h3 style="margin-top: 28px;">2026 Dates</h3>
+
+        <ul class="ddt-date-list">
+            <li class="ddt-date-pill">July 16–18</li>
+            <li class="ddt-date-pill">Aug 20–22</li>
+            <li class="ddt-date-pill">Sept 10–12</li>
+        </ul>
+
+        <p class="ddt-includes-text"><strong>Includes:</strong> All lodging, meals, and transportation from the morning of the first day to the afternoon of the final day.</p>
+        <p class="ddt-includes-text"><strong>Private Tours:</strong> Call or email if you are interested in making your tour private.</p>
+    </div>
+</div>
+
+<script>
+(function() {
+    var root = document.getElementById('ddt-tour');
+    if (!root) return;
+
+    var tabs = root.querySelectorAll('.ddt-tab-btn');
+    var panels = root.querySelectorAll('.ddt-tab-content');
+
+    function switchTab(e) {
+        var btn = e.currentTarget;
+        var target = btn.getAttribute('data-tab');
+        if (!target) return;
+
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove('ddt-active');
+        }
+        for (var j = 0; j < panels.length; j++) {
+            panels[j].classList.remove('ddt-active');
+        }
+
+        btn.classList.add('ddt-active');
+        var panel = root.querySelector('#' + target);
+        if (panel) panel.classList.add('ddt-active');
+    }
+
+    for (var i = 0; i < tabs.length; i++) {
+        tabs[i].addEventListener('click', switchTab);
+    }
+})();
+</script>
+
+</body>
+</html>
