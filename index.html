@@ -384,9 +384,58 @@
             border: 1px solid rgba(34, 100, 34, 0.15);
         }
 
+        #ddt-tour .ddt-date-group {
+            margin-bottom: 12px;
+        }
+
+        #ddt-tour .ddt-date-month {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #999;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        #ddt-tour .ddt-date-group .ddt-date-list {
+            margin: 0;
+        }
+
+        #ddt-tour .ddt-month-may {
+            background: rgba(34, 139, 34, 0.08);
+            color: rgb(34, 120, 34);
+            border-color: rgba(34, 139, 34, 0.18);
+        }
+
+        #ddt-tour .ddt-month-jun {
+            background: rgba(50, 130, 180, 0.08);
+            color: rgb(40, 110, 160);
+            border-color: rgba(50, 130, 180, 0.18);
+        }
+
+        #ddt-tour .ddt-month-jul {
+            background: rgba(204, 108, 29, 0.08);
+            color: rgb(180, 90, 20);
+            border-color: rgba(204, 108, 29, 0.18);
+        }
+
+        #ddt-tour .ddt-month-aug {
+            background: rgba(160, 60, 120, 0.08);
+            color: rgb(140, 50, 100);
+            border-color: rgba(160, 60, 120, 0.18);
+        }
+
+        #ddt-tour .ddt-month-sep {
+            background: rgba(120, 80, 40, 0.08);
+            color: rgb(110, 70, 35);
+            border-color: rgba(120, 80, 40, 0.18);
+        }
+
         /* Includes text */
         #ddt-tour .ddt-includes-card {
-            background: rgba(34, 100, 34, 0.06);
+            background: rgba(34, 100, 34, 0.03);
             border-left: 3px solid rgb(34, 100, 34);
             border-radius: 0 10px 10px 0;
             padding: 18px 22px;
@@ -592,27 +641,54 @@
             <div class="ddt-price-sub">Deposit to book: $500</div>
         </div>
 
-        <h3 style="margin-top: 28px;">2026 Dates</h3>
-
-        <ul class="ddt-date-list">
-            <li class="ddt-date-pill">July 16–18</li>
-            <li class="ddt-date-pill">Aug 20–22</li>
-            <li class="ddt-date-pill">Sept 10–12</li>
-        </ul>
+        <h3 style="margin-top: 28px;">What's Included</h3>
 
         <div class="ddt-includes-card">
-            <h3>What's Included</h3>
             <ul class="ddt-includes-list">
-                <li><i class="fa-solid fa-bed"></i> All lodging</li>
-                <li><i class="fa-solid fa-utensils"></i> All meals</li>
-                <li><i class="fa-solid fa-van-shuttle"></i> All transportation</li>
-                <li><i class="fa-solid fa-shirt"></i> Dig Deep t-shirt</li>
-                <li><i class="fa-solid fa-bottle-water"></i> Dig Deep water bottle</li>
+                <li><i class="fa-solid fa-bed"></i> Lodging</li>
+                <li><i class="fa-solid fa-utensils"></i> Meals</li>
+                <li><i class="fa-solid fa-van-shuttle"></i> Transportation</li>
+                <li><i class="fa-solid fa-shirt"></i> Dig Deep T-Shirt</li>
+                <li><i class="fa-solid fa-bottle-water"></i> Dig Deep Water Bottle</li>
             </ul>
         </div>
 
-        <div class="ddt-private-card">
-            <i class="fa-solid fa-users"></i>&nbsp; <strong>Private Tours:</strong> <a href="tel:+13605923830">Call</a> or <a href="mailto:info@digdeeptours.com">email</a> if you are interested in making your tour private.
+        <h3 style="margin-top: 28px;">2026 Dates</h3>
+
+        <div class="ddt-date-group">
+            <span class="ddt-date-month">May</span>
+            <ul class="ddt-date-list">
+                <li class="ddt-date-pill ddt-month-may">May 15–17</li>
+                <li class="ddt-date-pill ddt-month-may">May 22–24</li>
+                <li class="ddt-date-pill ddt-month-may">May 29–30</li>
+            </ul>
+        </div>
+        <div class="ddt-date-group">
+            <span class="ddt-date-month">June</span>
+            <ul class="ddt-date-list">
+                <li class="ddt-date-pill ddt-month-jun">June 5–6</li>
+                <li class="ddt-date-pill ddt-month-jun">June 12–14</li>
+            </ul>
+        </div>
+        <div class="ddt-date-group">
+            <span class="ddt-date-month">July</span>
+            <ul class="ddt-date-list">
+                <li class="ddt-date-pill ddt-month-jul">July 17–19</li>
+                <li class="ddt-date-pill ddt-month-jul">July 24–26</li>
+            </ul>
+        </div>
+        <div class="ddt-date-group">
+            <span class="ddt-date-month">August</span>
+            <ul class="ddt-date-list">
+                <li class="ddt-date-pill ddt-month-aug">Aug 21–23</li>
+                <li class="ddt-date-pill ddt-month-aug">Aug 28–30</li>
+            </ul>
+        </div>
+        <div class="ddt-date-group">
+            <span class="ddt-date-month">September</span>
+            <ul class="ddt-date-list">
+                <li class="ddt-date-pill ddt-month-sep">Sept 4–6</li>
+            </ul>
         </div>
     </div>
 </div>
