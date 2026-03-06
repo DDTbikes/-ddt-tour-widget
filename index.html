@@ -573,6 +573,31 @@
     for (var i = 0; i < tabs.length; i++) {
         tabs[i].addEventListener('click', switchTab);
     }
+
+    // Accordion: only one day open at a time
+    var details = root.querySelectorAll('details');
+    details.forEach(function(d) {
+        d.addEventListener('toggle', function() {
+            if (d.open) {
+                details.forEach(function(other) {
+                    if (other !== d) other.removeAttribute('open');
+                });
+            }
+            notifyHeight();
+        });
+    });
+
+    // Auto-resize: send height to parent iframe
+    function notifyHeight() {
+        var h = document.documentElement.scrollHeight;
+        window.parent.postMessage({ ddt_height: h }, '*');
+    }
+    notifyHeight();
+    window.addEventListener('resize', notifyHeight);
+    // Also notify after fonts load
+    if (document.fonts) {
+        document.fonts.ready.then(notifyHeight);
+    }
 })();
 </script>
 <script src="https://valet.rentals/embed.js?v=1.0"></script>
