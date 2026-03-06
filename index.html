@@ -752,9 +752,20 @@
     // Watch for DOM changes (accordion open/close)
     var observer = new MutationObserver(notifyHeight);
     observer.observe(root, { childList: true, subtree: true, attributes: true });
+
+    // Valet booking: send to parent page so popup covers full site
+    root.querySelectorAll('.valet-embed').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.parent.postMessage({
+                ddt_valet: true,
+                href: link.getAttribute('href'),
+                experienceId: link.getAttribute('data-experience-id')
+            }, '*');
+        });
+    });
 })();
 </script>
-<script src="https://valet.rentals/embed.js?v=1.0"></script>
 
 </body>
 </html>
