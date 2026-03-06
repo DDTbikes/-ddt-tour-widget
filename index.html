@@ -589,15 +589,21 @@
 
     // Auto-resize: send height to parent iframe
     function notifyHeight() {
-        var h = document.documentElement.scrollHeight;
+        var h = document.body.scrollHeight + 32;
         window.parent.postMessage({ ddt_height: h }, '*');
     }
+    // Notify on multiple events to catch all layout shifts
     notifyHeight();
     window.addEventListener('resize', notifyHeight);
-    // Also notify after fonts load
     if (document.fonts) {
         document.fonts.ready.then(notifyHeight);
     }
+    // Re-notify after short delays for late-loading content
+    setTimeout(notifyHeight, 500);
+    setTimeout(notifyHeight, 1500);
+    // Watch for DOM changes (accordion open/close)
+    var observer = new MutationObserver(notifyHeight);
+    observer.observe(root, { childList: true, subtree: true, attributes: true });
 })();
 </script>
 <script src="https://valet.rentals/embed.js?v=1.0"></script>
