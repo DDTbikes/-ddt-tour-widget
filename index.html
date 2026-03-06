@@ -385,6 +385,66 @@
         }
 
         /* Includes text */
+        #ddt-tour .ddt-includes-card {
+            background: rgba(34, 100, 34, 0.06);
+            border-left: 3px solid rgb(34, 100, 34);
+            border-radius: 0 10px 10px 0;
+            padding: 18px 22px;
+            margin: 20px 0 12px;
+        }
+
+        #ddt-tour .ddt-includes-card h3 {
+            margin: 0 0 12px;
+            color: rgb(34, 100, 34);
+        }
+
+        #ddt-tour .ddt-includes-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        #ddt-tour .ddt-includes-list li {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: rgba(34, 100, 34, 0.1);
+            color: rgb(34, 100, 34);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        #ddt-tour .ddt-includes-list li i {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        #ddt-tour .ddt-private-card {
+            background: #fafafa;
+            border-left: 3px solid rgb(204, 108, 29);
+            border-radius: 0 10px 10px 0;
+            padding: 14px 18px;
+            margin: 12px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        #ddt-tour .ddt-private-card a {
+            color: rgb(204, 108, 29);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        #ddt-tour .ddt-private-card a:hover {
+            text-decoration: underline;
+        }
+
         #ddt-tour .ddt-includes-text {
             font-size: 14px;
             color: #666;
@@ -540,8 +600,20 @@
             <li class="ddt-date-pill">Sept 10–12</li>
         </ul>
 
-        <p class="ddt-includes-text"><strong>Includes:</strong> All lodging, meals, and transportation from the morning of the first day to the afternoon of the final day.</p>
-        <p class="ddt-includes-text"><strong>Private Tours:</strong> Call or email if you are interested in making your tour private.</p>
+        <div class="ddt-includes-card">
+            <h3>What's Included</h3>
+            <ul class="ddt-includes-list">
+                <li><i class="fa-solid fa-bed"></i> All lodging</li>
+                <li><i class="fa-solid fa-utensils"></i> All meals</li>
+                <li><i class="fa-solid fa-van-shuttle"></i> All transportation</li>
+                <li><i class="fa-solid fa-shirt"></i> Dig Deep t-shirt</li>
+                <li><i class="fa-solid fa-bottle-water"></i> Dig Deep water bottle</li>
+            </ul>
+        </div>
+
+        <div class="ddt-private-card">
+            <i class="fa-solid fa-users"></i>&nbsp; <strong>Private Tours:</strong> <a href="tel:+13605923830">Call</a> or <a href="mailto:info@digdeeptours.com">email</a> if you are interested in making your tour private.
+        </div>
     </div>
 </div>
 
